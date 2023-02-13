@@ -1,3 +1,5 @@
+// Pacakge glitch provides methods to glitch (zalgo) text.
+// This implementation is based on https://github.com/combatwombat/Lunicode.js
 package glitch
 
 import (
@@ -61,7 +63,7 @@ func WithMaxHeight(v int) Option {
 }
 
 // WithRandomization 0-100%. maxHeight 100 and randomization 20%: the height goes from 80 to 100. randomization 70%, height goes from 30 to 100.
-func WithRandomization(v int) Option {
+func WithRandomization(v float32) Option {
 	if v < 0 || v > 100 {
 		panic("randomization needs to be between 0 and 100")
 	}
@@ -163,7 +165,7 @@ func Encode(t []byte, opts ...Option) []byte {
 // middle=true, bottom=true, maxHeight=15, randomization=100, unless modified by
 // opts
 func EncodeString(t string, opts ...Option) string {
-	encOpts := parseOptions()
+	encOpts := parseOptions(opts...)
 
 	newText := &strings.Builder{}
 	for _, newChar := range t {
