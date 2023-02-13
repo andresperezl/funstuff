@@ -3,14 +3,14 @@ branches:
 - main
 - next
 - next-major
-- name: 'beta'
+- name: beta
   prerelease: true
-- name: 'alpha'
+- name: alpha
   prerelease: true
 plugins:
-- "@semantic-release/commit-analyzer",
-- "@semantic-release/release-notes-generator",
-- - "@semantic-release/changelog",
+- "@semantic-release/commit-analyzer"
+- "@semantic-release/release-notes-generator"
+- - "@semantic-release/changelog"
     changelogFile: CHANGELOG.md
 - semantic-release-license
 - - "@semantic-release/git"
